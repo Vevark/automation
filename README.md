@@ -16,12 +16,16 @@ openstack stack create stack_with_init_script -f ‘yaml’ -t ssc-test-stack.ym
 After failed to RUN apt-get update
 ```bash
 sudo bash
+
 vi /etc/docker/daemon.json
+
 {
 "mtu": 1400
 }
 
 service docker restart
+
 docker build --no-cache -t cowsay:latest .
+
 docker run -d -p 5000:5000  cowsay
 ```
