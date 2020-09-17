@@ -8,11 +8,11 @@ import keystoneclient.v3.client as ksclient
 from keystoneauth1 import loading
 from keystoneauth1 import session
 
-flavor = "ACCHT18.normal" 
-private_net = None
+flavor = "ssc.xsmall" 
+private_net = "UPPMAX 2020/1-2 Internal IPv4 Network"
 floating_ip_pool_name = None
 floating_ip = None
-image_name = None
+image_name = "Ubuntu 18.04"
 
 loader = loading.get_plugin_loader('password')
 
@@ -49,7 +49,7 @@ else:
 secgroups = ['default']
 
 print "Creating instance ... "
-instance = nova.servers.create(name="vm1", image=image, flavor=flavor, userdata=userdata, nics=nics,security_groups=secgroups)
+instance = nova.servers.create(name="vmVera", image=image, flavor=flavor, userdata=userdata, nics=nics,security_groups=secgroups,key_name="task_1")
 inst_status = instance.status
 print "waiting for 10 seconds.. "
 time.sleep(10)
